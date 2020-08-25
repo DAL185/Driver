@@ -28,12 +28,12 @@ Kumi: 0 miles
 ```
 
 #### (2) Solution Summary(High-Level)
-* process the input file, build a dictionary to record each driver's total time and total miles, and calculate the avg speed, finally build the sorted reports
+* Process the input file, build a dictionary to record each driver's total time and total miles, and calculate the avg speed, finally build the sorted reports
 
 #### (3) solution details
 * a. Init: process the input file, build a list(called lines) of string to record each line
-         build a dictionary in format: {driver: [time, miles])}, initially time = 0, miles = 0
-         build another dict miles_report in format: miles_report[(total_miles, driver): report]
+         build a dict called dictionary in format: {driver: [total_time, total_miles])}, initially time = 0, miles = 0
+         build another dict called miles_report in format: miles_report[(total_miles, driver): cur driver's report]
             for sort the report based on the total miles from most to least
 * b. Traverse lines, for each line:
    case1: command is driver, init the dictionary[driver] = [0, 0]
@@ -50,17 +50,17 @@ Kumi: 0 miles
 * I decided to use unit testing based on the demo example data to check each part of the solution details(a-d), as well as some corner case test such as extreme speed not in range[5, 100]
 
 #### 3.1 Unit testing for each solution details part 
-* a. Because initally two dictionary would be empty, so first step we just test if we have sucessfully read the input file and built the list 
+* a. Because initally the two dicts(dictionary, miles_report) would be empty, so first step we just test if we have sucessfully read the input file and built the list 
 
 ![a](https://github.com/DAL185/Driver/blob/master/Testing/a.%20test%20input%20file%20read.png)
 
-* b. The second test is to check if the dictionary which in format{driver:[total_time(in hours), total_miles]} has been built sucessfully 
+* b. The second test is to check if the first dict called dictionary which in format{driver:[total_time(in hours), total_miles]} has been built sucessfully 
 ![b](https://github.com/DAL185/Driver/blob/master/Testing/b.%20test%20the%20dictionary.png)
 
-* c. The thrid test is to check if the other dict called miles_report, which is in format {(total_miles, driver): driver's report} and used for sort the report firstly by most total_miles to least, and secondly by Driver name's lexicographical order  
+* c. The third test is to check if the other dict called miles_report, which is in format {(total_miles, driver): driver's report} and used for sorting the report firstly by most total_miles to least, and secondly by Driver name's lexicographical order  
 ![c](https://github.com/DAL185/Driver/blob/master/Testing/c.%20test%20the%20miles_%20report.png)
 
-* d. The fourth test is to check if the dict miles_report has been sorted sucessfully based on the rule in step c
+* d. The fourth test is to check if the dict miles_report has been sorted sucessfully based on the sorting rule in step c
 ![d](https://github.com/DAL185/Driver/blob/master/Testing/d.%20test%20sorted%20miles_report.png)
 
 * e. The fifth test is to check the final report 
